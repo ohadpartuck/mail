@@ -1982,7 +1982,7 @@ module Mail
     def body_lazy(value)
       process_body_raw if @body_raw && value
       case
-      when value == nil || value.length<=0
+      when value == nil || value.class== Mail::Body || value.length<=0
         @body = Mail::Body.new('')
         @body_raw = nil
         add_encoding_to_body
